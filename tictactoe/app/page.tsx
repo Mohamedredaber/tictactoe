@@ -14,11 +14,11 @@ const winning = [
 ];
 
 export default function Home() {
-  const [cells, setCells] = useState(Array(9).fill(null)); // les 9 cases
-  const [go, setGo] = useState("circle"); // joueur courant
+  const [cells, setCells] = useState(Array(9).fill(null)); 
+  const [go, setGo] = useState("circle");
 const [winningMessage, setWinningMessage] = useState('');
 
-  const [started, setStarted] = useState(false); // état du jeu
+  const [started, setStarted] = useState(false); 
 
   // Vérifie le gagnant ou le match nul
   useEffect(() => {
@@ -39,7 +39,7 @@ const [winningMessage, setWinningMessage] = useState('');
 
     if (winner) {
       setWinningMessage(winner);
-      setStarted(false); // 🔥 stoppe le jeu (cases bloquées, Start activé)
+      setStarted(false);
       return;
     }
 
