@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+# Déclenche le pipeline sur push ou pull request sur main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout du repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Installer Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3. Installer les dépendances
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Build
+      - name: Build project
+        run: npm run build
+
+      # 5. Lancer les tests
+      - name: Run tests
+        run: npm test
+
+      # 6. Déployer (exemple sur GitHub Pages)
+      - name: Deploy
+        if: success()  # Déploie seulement si build et tests réussissent
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
