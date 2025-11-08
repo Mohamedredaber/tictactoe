@@ -1,0 +1,55 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f0f0f0; /* optionnel : fond clair */
+}
+
+.gamebord {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+  border: 2px solid black;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
+
+
+.circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 400%;
+  color: green;
+  width: 90%;
+  height: 90%;
+  font-weight: bold;
+}
+.cross{
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 400%;
+  width: 90%;
+  height: 90%;
+}
+.role{
+  color: grey;
+}
